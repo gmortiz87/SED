@@ -12,24 +12,20 @@ def cargar_relacion():
 
 def transformar_fuente(nombre_fuente: str, anio: str = None):
     """
-    Prepara las tablas:
-    - Merge entre Fuente y Proyectos+Actividades
-    - Beneficiarios aparte
+    Prepara las tablas de Fuente, Proyectos, Actividades y Beneficiarios
+    sin unirlas directamente (se relacionarán luego en DWH/BI).
     """
     df_rel = cargar_relacion()
 
     # === Cargar entradas ===
-    if anio:
-        sufijo = f"_{anio}"
-    else:
-        sufijo = ""
+    sufijo = f"_{anio}" if anio else ""
 
     df_fuente = pd.read_excel(OUTPUT_DIR / f"Registros_Fuente_{nombre_fuente}{sufijo}.xlsx")
     df_proy = pd.read_excel(
         OUTPUT_DIR / f"Registro_Proyectos_Actividades_{nombre_fuente}{sufijo}.xlsx",
         sheet_name="Info_Proyectos"
     )
-    df_actividades = pd.read_excel(
+    df_act = pd.read_excel(
         OUTPUT_DIR / f"Registro_Proyectos_Actividades_{nombre_fuente}{sufijo}.xlsx",
         sheet_name="Actividades"
     )
@@ -38,7 +34,7 @@ def transformar_fuente(nombre_fuente: str, anio: str = None):
         sheet_name="Beneficiarios"
     )
 
-    # === Normalizar nombres de columnas ===
+    # === Normalizar columnas clave ===
     renombres = {
         "Nombre del Proyecto": "Nombre Proyecto",
         "Nombre de la Estrategia": "Nombre Proyecto",
@@ -46,44 +42,31 @@ def transformar_fuente(nombre_fuente: str, anio: str = None):
     }
     df_fuente.rename(columns=renombres, inplace=True)
     df_proy.rename(columns=renombres, inplace=True)
-    df_actividades.rename(columns=renombres, inplace=True)
+    df_act.rename(columns=renombres, inplace=True)
 
-    # === Garantizar que Actividades tenga "Nombre Proyecto" ===
-    if "Nombre Proyecto" not in df_actividades.columns:
-        if "Hoja" in df_actividades.columns and "Nombre Proyecto" in df_proy.columns:
-            mapping = df_proy.set_index("Hoja")["Nombre Proyecto"].to_dict()
-            df_actividades["Nombre Proyecto"] = df_actividades["Hoja"].map(mapping)
-
-    # === Enlazar con maestro ===
+    # === Enlazar con maestro solo para añadir columna FUENTES ===
     df_fuente_rel = df_fuente.merge(df_rel, left_on="Hoja", right_on="FUENTES", how="left")
     df_proy_rel = df_proy.merge(df_rel, left_on="Hoja", right_on="PROYECTOS", how="left")
-    df_actividades_rel = df_actividades.merge(df_rel, left_on="Hoja", right_on="PROYECTOS", how="left")
+    df_act_rel = df_act.merge(df_rel, left_on="Hoja", right_on="PROYECTOS", how="left")
     df_ben_rel = df_ben.merge(df_rel, left_on="Hoja", right_on="BENEFICIARIOS", how="left")
 
-    # === Merge Fuente + Proyectos ===
-    df_fuente_proy = df_fuente_rel.merge(
-        df_proy_rel, on=["FUENTES", "Hoja"], suffixes=("_fuente", "_proy")
-    )
-
-    # === Merge Proyectos + Actividades ===
-    df_proy_activ = df_proy_rel.merge(
-        df_actividades_rel, on=["Hoja", "Nombre Proyecto"], suffixes=("_proy", "_act")
-    )
-
-    # === Guardar resultados ===
+    # === Guardar outputs por separado ===
     STAGING_DIR.mkdir(parents=True, exist_ok=True)
-    suf = f"_{anio}" if anio else ""
 
-    out_fuente_proy = STAGING_DIR / f"fact_fuente_proyectos_{nombre_fuente.lower()}{suf}.xlsx"
-    out_proy_activ = STAGING_DIR / f"fact_proyectos_actividades_{nombre_fuente.lower()}{suf}.xlsx"
+    suf = f"_{anio}" if anio else ""
+    out_fuente = STAGING_DIR / f"fact_fuente_{nombre_fuente.lower()}{suf}.xlsx"
+    out_proy = STAGING_DIR / f"fact_proyectos_{nombre_fuente.lower()}{suf}.xlsx"
+    out_act = STAGING_DIR / f"fact_actividades_{nombre_fuente.lower()}{suf}.xlsx"
     out_ben = STAGING_DIR / f"fact_beneficiarios_{nombre_fuente.lower()}{suf}.xlsx"
 
-    df_fuente_proy.to_excel(out_fuente_proy, index=False)
-    df_proy_activ.to_excel(out_proy_activ, index=False)
+    df_fuente_rel.to_excel(out_fuente, index=False)
+    df_proy_rel.to_excel(out_proy, index=False)
+    df_act_rel.to_excel(out_act, index=False)
     df_ben_rel.to_excel(out_ben, index=False)
 
-    print(f"[OK] Fuente+Proyectos guardado en: {out_fuente_proy} ({len(df_fuente_proy)} filas)")
-    print(f"[OK] Proyectos+Actividades guardado en: {out_proy_activ} ({len(df_proy_activ)} filas)")
-    print(f"[OK] Beneficiarios guardado en: {out_ben} ({len(df_ben_rel)} filas)")
+    print(f"[OK] Fuente guardada en: {out_fuente} ({len(df_fuente_rel)} filas)")
+    print(f"[OK] Proyectos guardados en: {out_proy} ({len(df_proy_rel)} filas)")
+    print(f"[OK] Actividades guardadas en: {out_act} ({len(df_act_rel)} filas)")
+    print(f"[OK] Beneficiarios guardados en: {out_ben} ({len(df_ben_rel)} filas)")
 
-    return df_fuente_proy, df_proy_activ, df_ben_rel
+    return df_fuente_rel, df_proy_rel, df_act_rel, df_ben_rel
