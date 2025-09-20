@@ -17,6 +17,9 @@
     * Validar que no haya inconsistencias entre años/fuentes.
     * Revisar duplicados, llaves primarias y relaciones de integridad.
 
+
+
+
 2. Definición del modelo dimensional (capa oro / DWH)
 * Construir dimensiones y hechos a partir de las tablas staging:
     * DIM_Fuente

@@ -67,3 +67,7 @@ SED/
 ├── test_transformacion.py        # Test unificado con conteos por nivel
 │
 └── .venv/                        # Entorno virtual
+
+
+
+
