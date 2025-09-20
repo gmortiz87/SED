@@ -1,28 +1,20 @@
 import openpyxl
 import pandas as pd
 
-
 def extraer_datos(file_path, hoja, fila_titulos=2, fila_datos=3):
-    """
-    Extrae datos de una hoja Excel (.xlsx).
-    Si una celda tiene hipervínculo, se reemplaza por la URL.
-    Devuelve un DataFrame con los registros.
-    """
     wb = openpyxl.load_workbook(file_path, data_only=True)
     if hoja not in wb.sheetnames:
-        print(f"❌ La hoja '{hoja}' no existe en el archivo.")
+        print(f"La hoja '{hoja}' no existe en el archivo.")
         return pd.DataFrame()
 
     ws = wb[hoja]
-    print(f"📄 Procesando hoja: {hoja}")
+    print(f"[INFO] Procesando hoja: {hoja}")
 
-    # Encabezados
     headers = [
         str(cell.value).strip() if cell.value else f"Col{i+1}"
         for i, cell in enumerate(ws[fila_titulos])
     ]
 
-    # Filas
     all_rows = []
     for row in ws.iter_rows(min_row=fila_datos):
         valores = [

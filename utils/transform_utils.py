@@ -44,8 +44,8 @@ def transformar_fuente(nombre_fuente: str, anio: str = None):
     df_proy.rename(columns=renombres, inplace=True)
     df_act.rename(columns=renombres, inplace=True)
 
-    # === Enlazar con maestro solo para añadir columna FUENTES ===
-    df_fuente_rel = df_fuente.merge(df_rel, left_on="Hoja", right_on="FUENTES", how="left")
+    # === Enlazar con maestro solo en proyectos, actividades y beneficiarios ===
+    df_fuente_rel = df_fuente.copy()  # SIN merge, se mantiene tal cual
     df_proy_rel = df_proy.merge(df_rel, left_on="Hoja", right_on="PROYECTOS", how="left")
     df_act_rel = df_act.merge(df_rel, left_on="Hoja", right_on="PROYECTOS", how="left")
     df_ben_rel = df_ben.merge(df_rel, left_on="Hoja", right_on="BENEFICIARIOS", how="left")

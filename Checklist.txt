@@ -1,0 +1,31 @@
+| Nº | Tarea                                                                                      | Responsable       | Entregable esperado                                                                   |
+| -- | ------------------------------------------------------------------------------------------ | ----------------- | ------------------------------------------------------------------------------------- |
+| 1  | Cargar archivo maestro **Relación entre fuentes.xlsx**                                     | Equipo de datos   | DataFrame de relaciones cargado en memoria                                            |
+| 2  | Leer archivos extraídos por fuente (`Registros_Fuente_{nombre_fuente}_{anio}.xlsx`)        | Equipo de datos   | DataFrames iniciales de cada fuente                                                   |
+| 3  | Homogeneizar nombres de columnas (ej. `ID_Proyecto`, `Nombre_Proyecto`, `ID_Beneficiario`) | Equipo técnico    | Diccionario de mapeo de campos por fuente                                             |
+| 4  | Estandarizar tipos de datos (fechas, IDs, montos, textos)                                  | Equipo técnico    | DataFrames con tipos corregidos                                                       |
+| 5  | Crear campos derivados para trazabilidad (ej. `Anio_Fuente`, `Fuente_ID`)                  | Equipo técnico    | DataFrames enriquecidos con campos adicionales                                        |
+| 6  | Validar integridad: nulos, duplicados, correspondencia con maestro                         | Equipo de QA      | Reporte de validación (con métricas: % completitud, duplicados, registros rechazados) |
+| 7  | Exportar a **staging** en formato estandarizado (`.parquet` o `.xlsx`)                     | Equipo de datos   | Archivos: `Fuente_XX.parquet`, `Proyectos_XX.parquet`, `Beneficiarios_XX.parquet`     |
+| 8  | Generar log de procesamiento (conteo de registros, errores, advertencias)                  | Equipo de datos   | Archivo `.log` o `.xlsx` de control por fuente                                        |
+| 9  | Validar outputs de staging vs. archivo maestro                                             | Equipo de QA      | Informe de consistencia entre staging y relaciones                                    |
+| 10 | Aprobar carga para Data Mart / DWH                                                         | Líder de proyecto | Checklist firmado y outputs aprobados                                                 |
+
+
+1. Revisión de calidad de staging
+
+    * Validar que no haya inconsistencias entre años/fuentes.
+    * Revisar duplicados, llaves primarias y relaciones de integridad.
+
+2. Definición del modelo dimensional (capa oro / DWH)
+* Construir dimensiones y hechos a partir de las tablas staging:
+    * DIM_Fuente
+    * DIM_Proyecto
+    * DIM_Beneficiario
+    * FACT_Relaciones (hecho que une las tres dimensiones).
+* Documentar trazabilidad
+    * Crear un diccionario de datos de cada tabla en staging.
+    * Definir cómo se mapearán estas tablas en el Data Mart o tablero BI.
+* Prueba piloto en BI
+    * Cargar una fuente (ejemplo: POAI 2024) en el modelo estrella.
+    * Probar visualizaciones iniciales para validar relaciones.
