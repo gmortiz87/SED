@@ -2,7 +2,10 @@ import pandas as pd
 from pathlib import Path
 
 # === Configuración ===
-STAGING_DIR = Path("staging")
+# STAGING_DIR = Path("staging")
+BASE_DIR = Path(__file__).resolve().parents[0]
+STAGING_DIR = BASE_DIR / "staging"
+
 DEPURADO_DIR = STAGING_DIR / "depurado"
 DEPURADO_DIR.mkdir(exist_ok=True)
 OUTPUT_FILE = STAGING_DIR / "control_y_depuracion.xlsx"

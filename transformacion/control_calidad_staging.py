@@ -2,7 +2,14 @@ import pandas as pd
 from pathlib import Path
 
 # === Configuración ===
-STAGING_DIR = Path("staging")
+# STAGING_DIR = Path("staging")
+# OUTPUT_FILE = STAGING_DIR / "control_calidad_staging.xlsx"
+
+
+BASE_DIR = Path(__file__).resolve().parents[0]  # carpeta transformacion
+STAGING_DIR = BASE_DIR / "staging"
+STAGING_DIR.mkdir(parents=True, exist_ok=True)  # crea si no existe
+
 OUTPUT_FILE = STAGING_DIR / "control_calidad_staging.xlsx"
 
 # Definición de campos clave
