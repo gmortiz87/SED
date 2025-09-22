@@ -1,0 +1,861 @@
+=== PIPELINE ETL COMPLETO ===
+=== PIPELINE ETL COMPLETO ===
+
+🚀 Ejecutando Extracción ...
+ðŸš€ Iniciando pipeline ETL...
+
+ðŸ“¥ Extrayendo Nivel 1 (Fuentes)...
+[INFO] Procesando hoja: POAI_2025
+[OK] Archivo exportado: C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\extraccion\outputs\Registros_Fuente_POAI_2025.xlsx
+[INFO] 14 registros exportados de la hoja POAI_2025
+
+Primeros registros:
+   Col1  NÂ°  ... Avance en el Cargue de informaciÃ³n       Hoja
+0  None   1  ...                               0.50  POAI_2025
+1  None   2  ...                               0.25  POAI_2025
+2  None   3  ...                               1.00  POAI_2025
+3  None   4  ...                               1.00  POAI_2025
+4  None   5  ...                               0.00  POAI_2025
+
+[5 rows x 19 columns]
+[TIEMPO] ExtracciÃ³n POAI 2025: 7.94 segundos
+[INFO] Procesando hoja: POAI_2024
+[OK] Archivo exportado: C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\extraccion\outputs\Registros_Fuente_POAI_2024.xlsx
+[INFO] 24 registros exportados de la hoja POAI_2024
+
+Primeros registros:
+   Col1  NÂ°  ... Col18       Hoja
+0  None   1  ...  None  POAI_2024
+1  None   2  ...  None  POAI_2024
+2  None   3  ...  None  POAI_2024
+3  None   4  ...  None  POAI_2024
+4  None   5  ...  None  POAI_2024
+
+[5 rows x 19 columns]
+[TIEMPO] ExtracciÃ³n POAI 2024: 8.68 segundos
+[INFO] Procesando hoja: REGALIAS
+[OK] Archivo exportado: C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\extraccion\outputs\Registros_Fuente_Regalias.xlsx
+[INFO] 8 registros exportados de la hoja REGALIAS
+
+Primeros registros:
+   Col1  NÂ°  ... Col18      Hoja
+0  None   1  ...  None  REGALIAS
+1  None   2  ...  None  REGALIAS
+2  None   3  ...  None  REGALIAS
+3  None   4  ...  None  REGALIAS
+4  None   5  ...  None  REGALIAS
+
+[5 rows x 19 columns]
+[TIEMPO] ExtracciÃ³n Regalias: 6.92 segundos
+[INFO] Procesando hoja: ESTRATEGIAS
+[OK] Archivo exportado: C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\extraccion\outputs\Registros_Fuente_Estrategias.xlsx
+[INFO] 11 registros exportados de la hoja ESTRATEGIAS
+
+[OK] Primeros registros:
+   Col1  NÂ°  ... Col12         Hoja
+0  None   1  ...  None  ESTRATEGIAS
+1  None   2  ...  None  ESTRATEGIAS
+2  None   3  ...  None  ESTRATEGIAS
+3  None   4  ...  None  ESTRATEGIAS
+4  None   5  ...  None  ESTRATEGIAS
+
+[5 rows x 13 columns]
+[TIEMPO] ExtracciÃ³n Estrategias: 8.84 segundos
+
+ðŸ“¥ Extrayendo Nivel 2 (Proyectos)...
+[OK] 9 proyectos y 43 actividades exportadas a extraccion\outputs\Registro_Proyectos_Actividades_ESTRATEGIAS.xlsx
+[INFO] 9 proyectos y 43 actividades exportadas
+
+[OK] Primeros registros estrategias:
+                             Nombre de la Estrategia                   Hoja
+0  ALIANZA PARA LA TRANSFORMACIÃ“N DELA EDUCACIÃ“N ...          ATEM_EST_2025
+1                                               None  RECUP_APREND_EST_2024
+2                                               None  RECUP_APREND_EST_2025
+3                                               None    TODOS_LEER_EST_2024
+4                                               None    TODOS_LEER_EST_2025
+
+[OK] Primeros registros actividades:
+    NÂ°  ...                            Nombre de la Estrategia
+0  1.0  ...  ALIANZA PARA LA TRANSFORMACIÃ“N DELA EDUCACIÃ“N ...
+1  2.0  ...  ALIANZA PARA LA TRANSFORMACIÃ“N DELA EDUCACIÃ“N ...
+2  3.0  ...  ALIANZA PARA LA TRANSFORMACIÃ“N DELA EDUCACIÃ“N ...
+3  4.0  ...  ALIANZA PARA LA TRANSFORMACIÃ“N DELA EDUCACIÃ“N ...
+4  1.0  ...                                               None
+
+[5 rows x 13 columns]
+[TIEMPO] ExtracciÃ³n ESTRATEGIAS: 8.25 segundos
+[OK] 24 proyectos y 108 actividades exportadas a extraccion\outputs\Registro_Proyectos_Actividades_POAI_2024.xlsx
+[INFO] 24 proyectos y 108 actividades exportadas
+
+[OK] Primeros registros POAI 2024:
+                                 Nombre del Proyecto  ...                   Hoja
+0  ContribuciÃ³n al desarrollo de los juegos del s...  ...        Juegos_Pro_2024
+1  ConsolidaciÃ³n de la EducaciÃ³n flexible de jÃ³ve...  ...       Adultos_Pro_2024
+2  Asesoria a las instituciones educativas rurale...  ...           AFA_Pro_2024
+3  Apoyo a la articulaciÃ³n de la educaciÃ³n media ...  ...  Ed_Terciaria_Pro_2024
+4  Fortalecimiento de los comitÃ©s departamentales...  ...   Convivencia_Pro_2024
+
+[5 rows x 7 columns]
+
+[OK] Primeros registros actividades:
+   NÂ°  ...                                Nombre del Proyecto
+0   1  ...  ContribuciÃ³n al desarrollo de los juegos del s...
+1   2  ...  ContribuciÃ³n al desarrollo de los juegos del s...
+2   1  ...  ConsolidaciÃ³n de la EducaciÃ³n flexible de jÃ³ve...
+3   2  ...  ConsolidaciÃ³n de la EducaciÃ³n flexible de jÃ³ve...
+4   3  ...  ConsolidaciÃ³n de la EducaciÃ³n flexible de jÃ³ve...
+
+[5 rows x 13 columns]
+[TIEMPO] ExtracciÃ³n POAI_2024: 8.74 segundos
+[OK] 14 proyectos y 88 actividades exportadas a extraccion\outputs\Registro_Proyectos_Actividades_POAI_2025.xlsx
+[INFO] 14 proyectos y 88 actividades exportadas
+
+[OK] Primeros registros POAI 2025:
+                                 Nombre del Proyecto  ...                        Hoja
+0  Fortalecimiento de la actividad fÃ­sica y depor...  ...             Juegos_Pro_2025
+1  Mejoramiento de la GestiÃ³n Escolar en las Inst...  ...    Gestion_Escolar_Pro_2025
+2  Fortalecimiento de la convivencia escolar, pro...  ...        Convivencia_Pro_2025
+3  Fortalecimiento de las  condiciiones de calida...  ...  Educacion_Inicial_Pro_2025
+4  Fortalecimiento de los procesos de acceso y pe...  ...       Articulacion_Pro_2025
+
+[5 rows x 7 columns]
+
+[OK] Primeros registros actividades:
+   NÂ°  ...                                Nombre del Proyecto
+0   1  ...  Fortalecimiento de la actividad fÃ­sica y depor...
+1   2  ...  Fortalecimiento de la actividad fÃ­sica y depor...
+2   1  ...  Mejoramiento de la GestiÃ³n Escolar en las Inst...
+3   2  ...  Mejoramiento de la GestiÃ³n Escolar en las Inst...
+4   3  ...  Mejoramiento de la GestiÃ³n Escolar en las Inst...
+
+[5 rows x 13 columns]
+[TIEMPO] ExtracciÃ³n POAI_2025: 7.28 segundos
+[OK] 5 proyectos y 101 actividades exportadas a extraccion\outputs\Registro_Proyectos_Actividades_Regalias.xlsx
+[INFO] 5 proyectos y 101 actividades exportadas
+
+[OK] Primeros registros Regalias:
+                                 Nombre del Proyecto  ...                        Hoja
+0  FORTALECIMIENTO DE LAS HABILIDADES COMUNICATIV...  ...  Valle_Paraiso_Bilingue_Pro
+1  IMPLEMENTACIÃ“N DE UNA RED DE ESCENARIOS DE INV...  ...               VALLELABS_PRO
+2                                               None  ...         SABER_2024_2025_PRO
+3  FORTALECIMIENTO A LA EDUCACION SUPERIOR "LOS M...  ...      PORRAS_1_2017_2028_PRO
+4  FORTALECIMIENTO AL ACCESO Y PERMANENCIA DE LOS...  ...      PORRAS_2_20XX_20XX_PRO
+
+[5 rows x 7 columns]
+
+[OK] Primeros registros actividades:
+   NÂ°  ...                                Nombre del Proyecto
+0   1  ...  FORTALECIMIENTO DE LAS HABILIDADES COMUNICATIV...
+1   2  ...  FORTALECIMIENTO DE LAS HABILIDADES COMUNICATIV...
+2   3  ...  FORTALECIMIENTO DE LAS HABILIDADES COMUNICATIV...
+3   4  ...  FORTALECIMIENTO DE LAS HABILIDADES COMUNICATIV...
+4   5  ...  FORTALECIMIENTO DE LAS HABILIDADES COMUNICATIV...
+
+[5 rows x 13 columns]
+[TIEMPO] ExtracciÃ³n REGALIAS: 7.40 segundos
+
+ðŸ“¥ Extrayendo Nivel 3 (Beneficiarios)...
+[OK] Archivo exportado: C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\extraccion\outputs\Registro_Beneficiarios_ESTRATEGIAS.xlsx
+[OK] 234 beneficiarios exportados a C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\extraccion\outputs\Registro_Beneficiarios_ESTRATEGIAS.xlsx
+
+[DATA] Primeros registros:
+   NÂ°      DANE IEO  ... DotaciÃ³n Recibida           Hoja
+0   1  476020000249  ...              None  ATEM_BEN_2025
+1   2  176020000032  ...              None  ATEM_BEN_2025
+2   3  276041000746  ...              None  ATEM_BEN_2025
+3   4  276041000371  ...              None  ATEM_BEN_2025
+4   5  176041000016  ...              None  ATEM_BEN_2025
+
+[5 rows x 13 columns]
+[TIEMPO] ExtracciÃ³n ESTRATEGIAS: 7.88 segundos
+[OK] Archivo exportado: C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\extraccion\outputs\Registro_Beneficiarios_POAI_2024.xlsx
+[OK] 3429 beneficiarios exportados a C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\extraccion\outputs\Registro_Beneficiarios_POAI_2024.xlsx
+
+[DATA] Primeros registros:
+   NÂ°      DANE IEO  ... IEO Beneficiada # Padres, Madres y Cuidadores Beneficiados
+0   1  476020000249  ...             NaN                                        NaN
+1   2  176020000032  ...             NaN                                        NaN
+2   3  276036000037  ...             NaN                                        NaN
+3   4  176036000024  ...             NaN                                        NaN
+4   5  276041000746  ...             NaN                                        NaN
+
+[5 rows x 19 columns]
+[TIEMPO] ExtracciÃ³n POAI_2024: 12.20 segundos
+[OK] Archivo exportado: C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\extraccion\outputs\Registro_Beneficiarios_POAI_2025.xlsx
+[OK] 2072 beneficiarios exportados a C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\extraccion\outputs\Registro_Beneficiarios_POAI_2025.xlsx
+
+[DATA] Primeros registros:
+   NÂ°      DANE IEO  ...             Hoja # Padres - Madres y Cuidadores
+0   1  476020000249  ...  Juegos_Ben_2025                            NaN
+1   2  176020000032  ...  Juegos_Ben_2025                            NaN
+2   3  276036000037  ...  Juegos_Ben_2025                            NaN
+3   4  176036000024  ...  Juegos_Ben_2025                            NaN
+4   5  276041000746  ...  Juegos_Ben_2025                            NaN
+
+[5 rows x 14 columns]
+[TIEMPO] ExtracciÃ³n POAI_2025: 14.50 segundos
+[OK] Archivo exportado: C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\extraccion\outputs\Registro_Beneficiarios_REGALIAS.xlsx
+[OK] 745 beneficiarios exportados a C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\extraccion\outputs\Registro_Beneficiarios_REGALIAS.xlsx
+
+[DATA] Primeros registros:
+   NÂ°      DANE IEO  ...                        Hoja # Acudientes Beneficiados
+0   1  476020000249  ...  Valle_Paraiso_Bilingue_Ben                       NaN
+1   2  176020000032  ...  Valle_Paraiso_Bilingue_Ben                       NaN
+2   3  276036000037  ...  Valle_Paraiso_Bilingue_Ben                       NaN
+3   4  176036000024  ...  Valle_Paraiso_Bilingue_Ben                       NaN
+4   5  276041000746  ...  Valle_Paraiso_Bilingue_Ben                       NaN
+
+[5 rows x 14 columns]
+[TIEMPO] ExtracciÃ³n REGALIAS: 18.15 segundos
+
+âœ… Pipeline finalizado en 116.87 segundos.
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\.venv\Lib\site-packages\openpyxl\worksheet\_reader.py:329: UserWarning: Data Validation extension is not supported and will be removed
+  warn(msg)
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\.venv\Lib\site-packages\openpyxl\worksheet\_reader.py:329: UserWarning: Data Validation extension is not supported and will be removed
+  warn(msg)
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\.venv\Lib\site-packages\openpyxl\worksheet\_reader.py:329: UserWarning: Data Validation extension is not supported and will be removed
+  warn(msg)
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\.venv\Lib\site-packages\openpyxl\worksheet\_reader.py:329: UserWarning: Data Validation extension is not supported and will be removed
+  warn(msg)
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\.venv\Lib\site-packages\openpyxl\worksheet\_reader.py:329: UserWarning: Data Validation extension is not supported and will be removed
+  warn(msg)
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\.venv\Lib\site-packages\openpyxl\worksheet\_reader.py:329: UserWarning: Data Validation extension is not supported and will be removed
+  warn(msg)
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\.venv\Lib\site-packages\openpyxl\worksheet\_reader.py:329: UserWarning: Data Validation extension is not supported and will be removed
+  warn(msg)
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\extraccion\utils\proyectos_utils.py:123: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  df_actividades = pd.concat(actividades_total, ignore_index=True) if actividades_total else pd.DataFrame()
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\.venv\Lib\site-packages\openpyxl\worksheet\_reader.py:329: UserWarning: Data Validation extension is not supported and will be removed
+  warn(msg)
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\extraccion\utils\proyectos_utils.py:123: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  df_actividades = pd.concat(actividades_total, ignore_index=True) if actividades_total else pd.DataFrame()
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\.venv\Lib\site-packages\openpyxl\worksheet\_reader.py:329: UserWarning: Data Validation extension is not supported and will be removed
+  warn(msg)
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\.venv\Lib\site-packages\openpyxl\worksheet\_reader.py:329: UserWarning: Data Validation extension is not supported and will be removed
+  warn(msg)
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\extraccion\nivel3_beneficiarios\extraccion_beneficiarios_poai_2024.py:37: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  df_total = pd.concat(dfs, ignore_index=True)
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\.venv\Lib\site-packages\openpyxl\worksheet\_reader.py:329: UserWarning: Data Validation extension is not supported and will be removed
+  warn(msg)
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\extraccion\nivel3_beneficiarios\extraccion_beneficiarios_poai_2025.py:36: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  df_total = pd.concat(dfs, ignore_index=True)
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\.venv\Lib\site-packages\openpyxl\worksheet\_reader.py:329: UserWarning: Data Validation extension is not supported and will be removed
+  warn(msg)
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\extraccion\nivel3_beneficiarios\extraccion_beneficiarios_regalias.py:36: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  df_total = pd.concat(dfs, ignore_index=True)
+✅ Extracción completado en 119.29 segundos.
+
+🚀 Ejecutando Transformación ...
+❌ Error en Transformación: Command '['C:\\Users\\Adminstrador\\Documents\\3 - Ave Fenix\\Propuesta\\SED\\.venv\\Scripts\\python.exe', 'C:\\Users\\Adminstrador\\Documents\\3 - Ave Fenix\\Propuesta\\SED\\main_transform.py']' returned non-zero exit status 1.
+STDERR:
+Traceback (most recent call last):
+  File "C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\main_transform.py", line 92, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\main_transform.py", line 18, in main
+    print("\U0001f9ea TEST: Transformaciones (POAI, Estrategias, Regalías)\n")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2032.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f9ea' in position 0: character maps to <undefined>
+
+
+🚀 Ejecutando Control de calidad ...
+❌ Error en Control de calidad: Command '['C:\\Users\\Adminstrador\\Documents\\3 - Ave Fenix\\Propuesta\\SED\\.venv\\Scripts\\python.exe', 'C:\\Users\\Adminstrador\\Documents\\3 - Ave Fenix\\Propuesta\\SED\\transformacion\\control_calidad_staging.py']' returned non-zero exit status 1.
+STDERR:
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py:98: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filas["Error"] = f"Nulos en {col}"
+Traceback (most recent call last):
+  File "C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py", line 125, in <module>
+    ejecutar_control()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\control_calidad_staging.py", line 120, in ejecutar_control
+    print(f"\n\u2705 Reporte de control generado en: {OUTPUT_FILE}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2032.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 2: character maps to <undefined>
+
+
+🚀 Ejecutando Depuración avanzada ...
+❌ Error en Depuración avanzada: Command '['C:\\Users\\Adminstrador\\Documents\\3 - Ave Fenix\\Propuesta\\SED\\.venv\\Scripts\\python.exe', 'C:\\Users\\Adminstrador\\Documents\\3 - Ave Fenix\\Propuesta\\SED\\transformacion\\flujo_calidad_depuracion.py']' returned non-zero exit status 1.
+STDERR:
+Traceback (most recent call last):
+  File "C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\flujo_calidad_depuracion.py", line 115, in <module>
+    ejecutar()
+    ~~~~~~~~^^
+  File "C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\transformacion\flujo_calidad_depuracion.py", line 112, in ejecutar
+    print(f"\u2705 Flujo completo ejecutado. Resultados en: {OUTPUT_FILE} y {DEPURADO_DIR}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2032.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 0: character maps to <undefined>
+
+
+🎯 Pipeline finalizado en 142.43 segundos.
+📄 Log guardado en: C:\Users\Adminstrador\Documents\3 - Ave Fenix\Propuesta\SED\pipeline.log
