@@ -22,12 +22,13 @@ def main():
     # --- POAI 2024 ---
     try:
         print("\n--- POAI 2024 ---")
-        df_fuente, df_proy, df_act, df_ben = transformar_poai_2024.run()
+        df_fuente, df_proy, df_act, df_ben, df_metas = transformar_poai_2024.run()
         resultados.extend([
             {"Fuente": "POAI 2024", "Tabla": "Fuente", "Total Registros": len(df_fuente)},
             {"Fuente": "POAI 2024", "Tabla": "Proyectos", "Total Registros": len(df_proy)},
             {"Fuente": "POAI 2024", "Tabla": "Actividades", "Total Registros": len(df_act)},
             {"Fuente": "POAI 2024", "Tabla": "Beneficiarios", "Total Registros": len(df_ben)},
+            {"Fuente": "POAI 2024", "Tabla": "Metas", "Total Registros": len(df_metas)},            
         ])
     except Exception as e:
         print(f"[ERROR] Transformación POAI 2024: {e}")
@@ -35,12 +36,13 @@ def main():
     # --- POAI 2025 ---
     try:
         print("\n--- POAI 2025 ---")
-        df_fuente, df_proy, df_act, df_ben = transformar_poai_2025.run()
+        df_fuente, df_proy, df_act, df_ben, df_metas = transformar_poai_2025.run()
         resultados.extend([
             {"Fuente": "POAI 2025", "Tabla": "Fuente", "Total Registros": len(df_fuente)},
             {"Fuente": "POAI 2025", "Tabla": "Proyectos", "Total Registros": len(df_proy)},
             {"Fuente": "POAI 2025", "Tabla": "Actividades", "Total Registros": len(df_act)},
             {"Fuente": "POAI 2025", "Tabla": "Beneficiarios", "Total Registros": len(df_ben)},
+            {"Fuente": "POAI 2025", "Tabla": "Metas", "Total Registros": len(df_metas)}, 
         ])
     except Exception as e:
         print(f"[ERROR] Transformación POAI 2025: {e}")
@@ -61,12 +63,13 @@ def main():
     # --- Regalías ---
     try:
         print("\n--- Regalías ---")
-        df_fuente, df_proy, df_act, df_ben = transformar_regalias.run()
+        df_fuente, df_proy, df_act, df_ben, df_metas= transformar_regalias.run()
         resultados.extend([
             {"Fuente": "Regalías", "Tabla": "Fuente", "Total Registros": len(df_fuente)},
             {"Fuente": "Regalías", "Tabla": "Proyectos", "Total Registros": len(df_proy)},
             {"Fuente": "Regalías", "Tabla": "Actividades", "Total Registros": len(df_act)},
             {"Fuente": "Regalías", "Tabla": "Beneficiarios", "Total Registros": len(df_ben)},
+            {"Fuente": "Regalías", "Tabla": "Metas", "Total Registros": len(df_metas)}, 
         ])
     except Exception as e:
         print(f"[ERROR] Transformación Regalías: {e}")

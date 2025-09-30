@@ -55,8 +55,8 @@ FUENTES_HOJAS = {
         "TODOS_LEER_EST_2024",
         "TODOS_LEER_EST_2025",
         "CELSIA_EST_2024",
-        "PTA_EST_2024_2027",
-        "JORNADA_UNICA_EST_2024_2027",
+        # "PTA_EST_2024_2027",
+        # "JORNADA_UNICA_EST_2024_2027",
         "DOVE_EST_2025"
     ]
 }

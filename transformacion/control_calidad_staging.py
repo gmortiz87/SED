@@ -2,52 +2,44 @@ import pandas as pd
 from pathlib import Path
 
 # === Configuración ===
-# STAGING_DIR = Path("staging")
-# OUTPUT_FILE = STAGING_DIR / "control_calidad_staging.xlsx"
-
-
 BASE_DIR = Path(__file__).resolve().parents[0]  # carpeta transformacion
 STAGING_DIR = BASE_DIR / "staging"
-STAGING_DIR.mkdir(parents=True, exist_ok=True)  # crea si no existe
+STAGING_DIR.mkdir(parents=True, exist_ok=True)
 
 OUTPUT_FILE = STAGING_DIR / "control_calidad_staging.xlsx"
 
-# Definición de campos clave
 PRIMARY_KEYS = {
-    "fact_fuente": "ID_Fuente",
-    "fact_proyectos": "ID_Proyecto",
-    "fact_beneficiarios": "ID_Beneficiario",
+    "stg_fuente": "ID_Fuente",
+    "stg_proyectos": "ID_Proyecto",
+    "stg_beneficiarios": "ID_Beneficiario",
+    "stg_metas": "ID_Meta",  # nuevo
 }
 FOREIGN_KEYS = {
-    "fact_proyectos": {"ID_Fuente": "fact_fuente"},
-    "fact_beneficiarios": {"ID_Proyecto": "fact_proyectos"},
+    "stg_proyectos": {"ID_Fuente": "stg_fuente"},
+    "stg_beneficiarios": {"ID_Proyecto": "stg_proyectos"},
+    "stg_metas": {"ID_Proyecto": "stg_proyectos"},  # nuevo
 }
 
-# === Cargar archivos ===
 def cargar_staging():
-    archivos = list(STAGING_DIR.glob("fact_*.xlsx"))
+    archivos = list(STAGING_DIR.glob("stg_*.xlsx"))
     dataframes = {}
     for archivo in archivos:
-        nombre = archivo.stem  # ej: fact_proyectos_poai_2024
+        nombre = archivo.stem
         df = pd.read_excel(archivo)
         dataframes[nombre] = df
     return dataframes
 
-# === Validaciones de calidad ===
 def validar_dataframe(nombre, df):
     resultados = {}
     pk = None
-    # Identificar tipo de tabla
     for clave in PRIMARY_KEYS:
         if nombre.startswith(clave):
             pk = PRIMARY_KEYS[clave]
 
-    # Conteos básicos
     resultados["total_registros"] = len(df)
     resultados["nulos"] = df.isnull().sum().to_dict()
     resultados["duplicados"] = df.duplicated().sum()
 
-    # Validar llave primaria
     if pk and pk in df.columns:
         resultados["unicidad_PK"] = df[pk].is_unique
     else:
@@ -55,7 +47,6 @@ def validar_dataframe(nombre, df):
 
     return resultados
 
-# === Validar relaciones FK ===
 def validar_relaciones(dfs):
     errores_fk = []
     for tabla, claves in FOREIGN_KEYS.items():
@@ -75,15 +66,12 @@ def validar_relaciones(dfs):
                     "columna": fk,
                     "tabla_referencia": tabla_ref,
                     "registros_invalidos": len(faltantes),
-                    "muestra": list(faltantes)[:10]  # primeras 10 inconsistencias
+                    "muestra": list(faltantes)[:10]
                 })
     return errores_fk
 
-# === Ejecutar validación completa ===
 def ejecutar_control():
     dfs = cargar_staging()
-
-    # Resumen general
     resumen = []
     errores_detalle = []
 
@@ -91,25 +79,21 @@ def ejecutar_control():
         resultado = validar_dataframe(nombre, df)
         resumen.append({"tabla": nombre, **resultado})
 
-        # Guardar filas con nulos en campos obligatorios
         for col, nulos in resultado["nulos"].items():
             if nulos > 0:
-                filas = df[df[col].isnull()]
+                filas = df[df[col].isna()].copy()
                 filas["Error"] = f"Nulos en {col}"
                 errores_detalle.append((nombre, filas))
 
-        # Guardar duplicados
         if resultado["duplicados"] > 0:
             filas = df[df.duplicated()]
             filas["Error"] = "Duplicado"
             errores_detalle.append((nombre, filas))
 
-    # Validación de FK
     errores_fk = validar_relaciones(dfs)
     for e in errores_fk:
         errores_detalle.append((e["tabla"], pd.DataFrame([e])))
 
-    # === Exportar reporte a Excel ===
     with pd.ExcelWriter(OUTPUT_FILE, engine="openpyxl") as writer:
         pd.DataFrame(resumen).to_excel(writer, sheet_name="Resumen", index=False)
         if errores_detalle:
@@ -118,8 +102,6 @@ def ejecutar_control():
         pd.DataFrame(errores_fk).to_excel(writer, sheet_name="Errores_FK", index=False)
 
     print(f"\n✅ Reporte de control generado en: {OUTPUT_FILE}")
-    
 
-# === Ejecutar ===
 if __name__ == "__main__":
     ejecutar_control()
