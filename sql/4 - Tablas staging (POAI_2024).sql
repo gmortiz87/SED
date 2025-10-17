@@ -68,7 +68,7 @@ DROP TABLE IF EXISTS stg_beneficiarios_poai_2024;
 CREATE TABLE stg_beneficiarios_poai_2024 (
   `N°` INT,
   `DANE IEO` VARCHAR(50),
-  `MUNICIO` VARCHAR(100),
+  `MUNICIPIO` VARCHAR(100),
   `NOMBRE_IEO` VARCHAR(255),
   `# Directivos Beneficiados` INT,
   `# Administrativos Beneficiados` INT,

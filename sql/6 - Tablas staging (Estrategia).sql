@@ -16,11 +16,13 @@ CREATE TABLE stg_fuente_estrategias (
   `Documentos de la Estrategia` TEXT,
   `Avance en el Cargue de información` DECIMAL(5,2),
   `Hoja` VARCHAR(100)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_unicode_ci;
 
 -- ========================
 -- stg_proyectos_estrategias
--- (esta tabla antes estaba mal: FUENTES, PROYECTOS, BENEFICIARIOS no corresponden)
+-- (ahora incluye id_proyecto INT para integrarse con DIM)
 -- ========================
 DROP TABLE IF EXISTS stg_proyectos_estrategias;
 CREATE TABLE stg_proyectos_estrategias (
@@ -28,13 +30,14 @@ CREATE TABLE stg_proyectos_estrategias (
     `Fuente` VARCHAR(50),
     `Proyecto_Cod` VARCHAR(100),
     `Beneficiarios` VARCHAR(100),
-    `Nombre_Proyecto` VARCHAR(255)
-) ENGINE=InnoDB;
-
+    `Nombre_Proyecto` VARCHAR(255),
+    `id_proyecto` INT NULL     -- 🔹 agregado para ser llenado por el script Python
+) ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_unicode_ci;
 
 -- ========================
 -- stg_actividades_estrategias
--- (corregido: quitamos DECIMAL de Total Ejecutado y renombramos campos según Excel real)
 -- ========================
 DROP TABLE IF EXISTS stg_actividades_estrategias;
 CREATE TABLE stg_actividades_estrategias (
@@ -50,10 +53,12 @@ CREATE TABLE stg_actividades_estrategias (
   `Hoja` VARCHAR(100),
   `PROYECTOS` VARCHAR(100),
   `Nombre_Proyecto` VARCHAR(255)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_unicode_ci;
 
 -- ========================
--- stg_beneficiariosstg_actividades_estrategias_estrategias
+-- stg_beneficiarios_estrategias
 -- ========================
 DROP TABLE IF EXISTS stg_beneficiarios_estrategias;
 CREATE TABLE stg_beneficiarios_estrategias (
@@ -65,11 +70,15 @@ CREATE TABLE stg_beneficiarios_estrategias (
   `# Administrativos Beneficiados` INT,
   `# Docentes Beneficiados` INT,
   `# Estudiantes Beneficiados` INT,
-  `¿Recibió Asistencia Técnica?` varchar(50),
+  `¿Recibió Asistencia Técnica?` VARCHAR(50),
   `Modalidad de la Asistencia Técnica` VARCHAR(255),
   `¿Recibió Dotación?` VARCHAR(50),
   `Dotación Recibida` TEXT,
   `Hoja` VARCHAR(100),
+  `PROYECTOS` VARCHAR(100),
   `Nombre Proyecto` VARCHAR(255)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_unicode_ci;
 
+SELECT * FROM stg_beneficiarios_estrategias;

@@ -7,11 +7,11 @@ DROP TABLE IF EXISTS stg_fuente_poai_2025;
 CREATE TABLE stg_fuente_poai_2025 (
   `N°` INT,
   `Nombre Proyecto` VARCHAR(255),
-  `Código BPIN` VARCHAR(20),
-  `Código PI` VARCHAR(20),
-  `Apropiación Definitiva` DECIMAL(15,2), -- 🔹 corregido
+  `Código BPIN` VARCHAR(20), 
+  `Código PI` VARCHAR(20), -- id_proyecto
+  `Apropiación Definitiva` DECIMAL(15,2), -- 
   `Adición` DECIMAL(15,2),
-  `Total Ejecutado` DECIMAL(15,2),        -- 🔹 nombre más genérico
+  `Total Ejecutado` DECIMAL(15,2),        -- 
   `Difrencia Apro - Ejec` DECIMAL(15,2),
   `Porcentaje de Ejecución` DECIMAL(5,2),
   `RECURSOS` VARCHAR(50),
@@ -20,7 +20,7 @@ CREATE TABLE stg_fuente_poai_2025 (
   `Documentos del Proyecto` TEXT,
   `IGP` TEXT,
   `Avance en el Cargue de información` DECIMAL(5,2),
-  `Hoja` VARCHAR(100)
+  `Hoja` VARCHAR(100) 
 ) ENGINE=InnoDB;
 
 -- ========================
@@ -29,15 +29,15 @@ CREATE TABLE stg_fuente_poai_2025 (
 DROP TABLE IF EXISTS stg_proyectos_poai_2025;
 CREATE TABLE stg_proyectos_poai_2025 (
   `Vigencia` VARCHAR(4),
-  `Código BPIN` VARCHAR(20),   -- 🔹 más largo
-  `Código PI` VARCHAR(20),     -- 🔹 más largo
+  `Código BPIN` VARCHAR(20),   
+  `Código PI` VARCHAR(20),     -- id_proyecto
   `Total Ejecutado` DECIMAL(15,2),
   `RECURSOS` VARCHAR(50),
-  `Hoja` VARCHAR(100),
+  `Hoja` VARCHAR(100), -- id_proyecto
   `FUENTES` VARCHAR(100),
   `PROYECTOS` VARCHAR(100),
   `BENEFICIARIOS` VARCHAR(100),
-  `Nombre_Proyecto` VARCHAR(255)  -- 🔹 ampliado
+  `Nombre_Proyecto` VARCHAR(255)  
 ) ENGINE=InnoDB;
 
 -- ========================
@@ -56,7 +56,7 @@ CREATE TABLE stg_actividades_poai_2025 (
   `Evidencia de la Actividad` TEXT,
   `Evidencia_URL` TEXT,
   `Observaciones Generales` TEXT,
-  `Hoja` VARCHAR(100),
+  `Hoja` VARCHAR(100), -- fk
   `FUENTES` VARCHAR(100),
   `PROYECTOS` VARCHAR(100),
   `Nombre_Proyecto` VARCHAR(255)
@@ -69,7 +69,7 @@ DROP TABLE IF EXISTS stg_beneficiarios_poai_2025;
 CREATE TABLE stg_beneficiarios_poai_2025 (
   `N°` INT,
   `DANE IEO` VARCHAR(50),
-  `MUNICIO` VARCHAR(100),  -- VALIDAR EL NOMBRE DE MUNICIPIO. ESTA MAL REDACTADO DE LA FUENTE. 
+  `MUNICIPIO` VARCHAR(100),  -- VALIDAR EL NOMBRE DE MUNICIPIO. ESTA MAL REDACTADO DE LA FUENTE. 
   `NOMBRE_IEO` VARCHAR(255),
   `# Directivos Beneficiados` INT,
   `# Administrativos Beneficiados` INT,

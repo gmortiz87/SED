@@ -41,6 +41,7 @@ def cargar_tabla(tabla, ruta_excel, engine):
         "Difrencia \nApro - Ejec": "Difrencia Apro - Ejec",
         "Responsable": "Responsable SED",
         "Enlace Técnico": "Enlace Técnico SED",
+        "MUNICIO": "MUNICIPIO",
     }
     df = df.rename(columns=renombres)
 
