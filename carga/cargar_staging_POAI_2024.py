@@ -7,14 +7,15 @@ import numpy as np
 USER = "sised_user"
 PWD  = "TuPasswordFuerte"
 HOST = "localhost"
-PORT = 3307
+PORT = 3306
 DB   = "sised"
 
 # Crear motor de conexión con SQLAlchemy
 engine = create_engine(f"mysql+pymysql://{USER}:{PWD}@{HOST}:{PORT}/{DB}")
 
 # === Rutas de los Excel depurados ===
-BASE = Path(__file__).resolve().parent
+# BASE = Path(__file__).resolve().parent
+BASE = Path(__file__).resolve().parents[1]
 DEPURADO = BASE / "transformacion" / "staging" / "depurado"
 
 archivos = {

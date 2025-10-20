@@ -6,14 +6,16 @@ from pathlib import Path
 USER = "sised_user"
 PWD  = "TuPasswordFuerte"
 HOST = "localhost"
-PORT = 3307
+PORT = 3306
 DB   = "sised"
 
 engine = create_engine(f"mysql+pymysql://{USER}:{PWD}@{HOST}:{PORT}/{DB}")
 
 # === Rutas de Excel depurados ===
-BASE = Path(__file__).resolve().parent
+BASE = Path(__file__).resolve().parents[1]
 DEPURADO = BASE / "transformacion" / "staging" / "depurado"
+print("BASE:", BASE)
+
 
 archivos = {
     "stg_actividades_estrategias": DEPURADO / "stg_actividades_estrategias_depurado.xlsx",
