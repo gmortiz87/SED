@@ -19,7 +19,7 @@ def run(fuente="POAI_2024"):
 
     end = time.time()
 
-    print(f"[INFO] {len(df_proyectos)} proyectos y {len(df_actividades)} actividades exportadas y {len(df_metas)} metas exportadas")
+    print(f"\n[INFO] {len(df_proyectos)} proyectos y {len(df_actividades)} actividades exportadas y {len(df_metas)} metas exportadas")
 
     print("\n[OK] Primeros registros POAI 2024:")
     print(df_proyectos.head())
@@ -31,7 +31,7 @@ def run(fuente="POAI_2024"):
     print(df_metas.head())
 
 
-    print(f"[TIEMPO] Extracción {fuente}: {end - start:.2f} segundos")
+    print(f"\n[TIEMPO] Extracción {fuente}: {end - start:.2f} segundos")
 
     return df_proyectos, df_actividades, df_metas
 

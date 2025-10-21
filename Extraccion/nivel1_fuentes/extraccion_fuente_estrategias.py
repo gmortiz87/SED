@@ -25,11 +25,11 @@ def run():
         output_file = OUTPUT_DIR / "Registros_Fuente_Estrategias.xlsx"
         guardar_excel({hoja: df_datos}, output_file)
 
-        print(f"[INFO] {len(df_datos)} registros exportados de la hoja {hoja}")
-        print("\n[OK] Primeros registros:")
-        print(df_datos.head())
+        print(f"\n📊 {len(df_datos)} registros exportados de la hoja {hoja}")
+        print("\n✅ Primeros registros:")
+        print("\n",df_datos.head())
     else:
-        print("[ALERTA] No se encontraron datos válidos en la hoja.")
+        print("\n[ALERTA] No se encontraron datos válidos en la hoja.")
 
     end = time.time()
-    print(f"[TIEMPO] Extracción Estrategias: {end - start:.2f} segundos")
+    print(f"\n[TIEMPO] Extracción Estrategias: {end - start:.2f} segundos")

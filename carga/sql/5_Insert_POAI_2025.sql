@@ -1,13 +1,6 @@
 USE sised;
 
--- =====================================================
--- 🧩 CARGA DE DIMENSIONES - POAI_2025
--- =====================================================
 
--- ========================
--- DIM FUENTE
--- ========================
-TRUNCATE TABLE dim_fuente_poai_2025;
 
 INSERT INTO dim_fuente_poai_2025 (nombre_fuente, tipo_fuente, fuente, anio)
 SELECT DISTINCT 
@@ -18,10 +11,8 @@ SELECT DISTINCT
 FROM stg_fuente_poai_2025
 WHERE `Hoja` IS NOT NULL AND `Hoja` <> '';
 
--- ========================
--- DIM PROYECTO
--- ========================
-TRUNCATE TABLE dim_proyecto_poai_2025;
+
+
 INSERT INTO dim_proyecto_poai_2025 (
     id_proyecto, codigo_bpin, nombre_proyecto, responsable,
     enlace_tecnico, sector, apropiacion_pptal, adicion_pptal, total_ejecutado,
@@ -49,10 +40,8 @@ WHERE p.`Código PI` IS NOT NULL
   
   select * from dim_proyecto_poai_2025;
 
--- ========================
--- DIM ACTIVIDAD
--- ========================
-TRUNCATE TABLE dim_actividad_poai_2025;
+
+
 INSERT INTO dim_actividad_poai_2025 (consecutivo, nombre_actividad, hoja_proyectos)
 SELECT DISTINCT 
     a.`N°`,
@@ -65,10 +54,8 @@ WHERE a.`Actividad del Proyecto` IS NOT NULL
 SELECT * FROM dim_actividad_poai_2025 d;
 
 
--- ========================
--- DIM MUNICIPIO
--- ========================
-TRUNCATE TABLE dim_municipio_poai_2025;
+
+
 INSERT INTO dim_municipio_poai_2025 (nombre_municipio, departamento, region)
 SELECT DISTINCT 
     TRIM(b.`MUNICIPIO`),
@@ -77,10 +64,7 @@ SELECT DISTINCT
 FROM stg_beneficiarios_poai_2025 b
 WHERE b.`MUNICIPIO` IS NOT NULL AND b.`MUNICIPIO` <> '';
 
--- ========================
--- DIM INSTITUCIÓN
--- ========================
-TRUNCATE TABLE dim_institucion_poai_2025;
+
 
 INSERT INTO dim_institucion_poai_2025 (id_institucion, nombre_ieo, codigo_dane, tipo, id_municipio)
 SELECT DISTINCT 
@@ -94,13 +78,8 @@ LEFT JOIN dim_municipio_poai_2025 m
     ON TRIM(UPPER(b.`MUNICIPIO`)) = TRIM(UPPER(m.nombre_municipio))
 WHERE b.`DANE IEO` IS NOT NULL
   AND b.`DANE IEO` <> '';
+  
 
-select * from dim_institucion_poai_2025;
-
--- ========================
--- DIM META
--- ========================
-TRUNCATE TABLE dim_meta_poai_2025;
 
 INSERT INTO dim_meta_poai_2025 (id_meta, descripcion_meta, unidad, valor_programado, valor_logrado, hoja_proyectos)
 SELECT DISTINCT 
@@ -116,12 +95,8 @@ SELECT DISTINCT
 FROM stg_metas_poai_2025 m
 WHERE m.`ID_Meta` IS NOT NULL;
 
-select * from dim_meta_poai_2025;
 
--- ========================
--- DIM TIEMPO
--- ========================
-truncate TABLE dim_tiempo_poai_2025;
+
 INSERT INTO dim_tiempo_poai_2025 (id_fecha, anio, mes, trimestre, fecha_completa)
 SELECT 
     DATE_FORMAT(CURDATE(), '%Y%m%d'),
@@ -130,16 +105,9 @@ SELECT
     QUARTER(CURDATE()),
     CURDATE();
 
-select * from dim_tiempo_poai_2025;
 
--- =====================================================
--- 🧩 CARGA DE TABLAS DE HECHOS 2025
--- =====================================================
 
--- ========================
--- FACT ACTIVIDADES
--- ========================
-TRUNCATE TABLE fact_actividades_poai_2025;
+
 INSERT INTO fact_actividades_poai_2025 (
     id_proyecto, id_actividad, total_ejecutado,
     tipo_actividad, actor, beneficiarios,
@@ -151,7 +119,6 @@ SELECT
     a.`Total Ejecutado`,
     a.`Componente PAM`,
     a.`¿A qué actor va dirigida?`,
-    -- a.`Número de Beneficiarios`,
     CASE 
         WHEN a.`Número de Beneficiarios` REGEXP '^[0-9]+$'
              THEN CAST(a.`Número de Beneficiarios` AS SIGNED)
@@ -166,12 +133,9 @@ LEFT JOIN stg_proyectos_poai_2025 p
     ON TRIM(UPPER(a.`Nombre_Proyecto`)) = TRIM(UPPER(p.`Nombre_Proyecto`))
 WHERE p.`Código PI` IN (SELECT id_proyecto FROM dim_proyecto_poai_2025);
 
-SELECT * FROM fact_actividades_poai_2025;
 
--- ========================
--- FACT PROYECTO - META
--- ========================
-TRUNCATE TABLE fact_proyecto_meta_poai_2025;
+
+
 INSERT INTO fact_proyecto_meta_poai_2025 (id_proyecto, id_meta, id_fecha)
 SELECT 
     p.`Código PI`,
@@ -184,10 +148,8 @@ WHERE p.`Código PI` IS NOT NULL;
 
 select * from fact_proyecto_meta_poai_2025;
 
--- ========================
--- FACT PROYECTO - INSTITUCIÓN
--- ========================
-TRUNCATE TABLE fact_proyecto_institucion_poai_2025;
+
+
 INSERT INTO fact_proyecto_institucion_poai_2025 (
     id_proyecto, id_institucion, id_municipio, hoja_origen, id_fecha
 )
@@ -205,12 +167,9 @@ LEFT JOIN dim_municipio_poai_2025 m
 WHERE p.`Código PI` IN (SELECT id_proyecto FROM dim_proyecto_poai_2025)
   AND b.`DANE IEO` IN (SELECT id_institucion FROM dim_institucion_poai_2025);
 
-select * from fact_proyecto_institucion_poai_2025;
 
--- ========================
--- FACT PROYECTO - BENEFICIARIOS
--- ========================
-TRUNCATE TABLE fact_proyecto_beneficiario_poai_2025;
+
+
 INSERT INTO fact_proyecto_beneficiario_poai_2025 (
     id_proyecto, id_institucion,
     directivos_benef, administrativos_benef,
@@ -235,21 +194,4 @@ LEFT JOIN stg_proyectos_poai_2025 p
     ON TRIM(UPPER(b.`PROYECTOS`)) = TRIM(UPPER(p.`Hoja`))
 WHERE p.`Código PI` IN (SELECT id_proyecto FROM dim_proyecto_poai_2025)
   AND b.`DANE IEO` IN (SELECT id_institucion FROM dim_institucion_poai_2025);
-
-select * from fact_proyecto_beneficiario_poai_2025;
-
--- =====================================================
--- ✅ RESUMEN GENERAL
--- =====================================================
-SELECT 'dim_fuente_poai_2025' AS tabla, COUNT(*) AS filas FROM dim_fuente_poai_2025
-UNION ALL SELECT 'dim_proyecto_poai_2025', COUNT(*) FROM dim_proyecto_poai_2025
-UNION ALL SELECT 'dim_actividad_poai_2025', COUNT(*) FROM dim_actividad_poai_2025
-UNION ALL SELECT 'dim_municipio_poai_2025', COUNT(*) FROM dim_municipio_poai_2025
-UNION ALL SELECT 'dim_institucion_poai_2025', COUNT(*) FROM dim_institucion_poai_2025
-UNION ALL SELECT 'dim_meta_poai_2025', COUNT(*) FROM dim_meta_poai_2025
-UNION ALL SELECT 'dim_tiempo_poai_2025', COUNT(*) FROM dim_tiempo_poai_2025
-UNION ALL SELECT 'fact_actividades_poai_2025', COUNT(*) FROM fact_actividades_poai_2025
-UNION ALL SELECT 'fact_proyecto_meta_poai_2025', COUNT(*) FROM fact_proyecto_meta_poai_2025
-UNION ALL SELECT 'fact_proyecto_institucion_poai_2025', COUNT(*) FROM fact_proyecto_institucion_poai_2025
-UNION ALL SELECT 'fact_proyecto_beneficiario_poai_2025', COUNT(*) FROM fact_proyecto_beneficiario_poai_2025;
 

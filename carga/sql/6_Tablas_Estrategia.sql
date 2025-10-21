@@ -1,12 +1,7 @@
 USE sised;
 
--- =====================================================
--- DIMENSIONES
--- =====================================================
 
--- ========================
--- dim_fuente_estrategias
--- ========================
+
 DROP TABLE IF EXISTS dim_fuente_estrategias;
 CREATE TABLE dim_fuente_estrategias (
     id_fuente INT AUTO_INCREMENT PRIMARY KEY,
@@ -17,12 +12,11 @@ CREATE TABLE dim_fuente_estrategias (
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
--- ========================
--- dim_proyecto_estrategias
--- ========================
-DROP TABLE IF EXISTS dim_proyecto_estrategias;
+
+
+
 CREATE TABLE dim_proyecto_estrategias (
-    id_proyecto INT PRIMARY KEY,           -- ✅ ahora viene directamente del staging
+    id_proyecto INT PRIMARY KEY,
     nombre_proyecto VARCHAR(255),
     entidad_aliada VARCHAR(255),
     responsable VARCHAR(255),
@@ -35,10 +29,8 @@ CREATE TABLE dim_proyecto_estrategias (
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
--- ========================
--- dim_actividad_estrategias
--- ========================
-DROP TABLE IF EXISTS dim_actividad_estrategias;
+
+
 CREATE TABLE dim_actividad_estrategias (
     consecutivo INT NOT NULL,
     nombre_actividad TEXT NOT NULL,
@@ -50,10 +42,8 @@ AUTO_INCREMENT=100
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
--- ========================
--- dim_municipio_estrategias
--- ========================
-DROP TABLE IF EXISTS dim_municipio_estrategias;
+
+
 CREATE TABLE dim_municipio_estrategias (
     id_municipio INT AUTO_INCREMENT PRIMARY KEY,
     nombre_municipio VARCHAR(255),
@@ -64,10 +54,8 @@ DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
 
--- ========================
--- dim_institucion_estrategias
--- ========================
-DROP TABLE IF EXISTS dim_institucion_estrategias;
+
+
 CREATE TABLE dim_institucion_estrategias (
     id_institucion VARCHAR(50) PRIMARY KEY,  
     nombre_ieo VARCHAR(255),
@@ -79,10 +67,8 @@ CREATE TABLE dim_institucion_estrategias (
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
--- ========================
--- dim_tiempo_estrategias
--- ========================
-DROP TABLE IF EXISTS dim_tiempo_estrategias;
+
+
 CREATE TABLE dim_tiempo_estrategias (
     id_fecha INT PRIMARY KEY,
     anio INT,
@@ -93,25 +79,19 @@ CREATE TABLE dim_tiempo_estrategias (
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
--- =====================================================
--- TABLAS DE HECHOS
--- =====================================================
 
--- ========================
--- fact_actividades_estrategias
--- ========================
-DROP TABLE IF EXISTS fact_actividades_estrategias;
+
 CREATE TABLE fact_actividades_estrategias (
     id_fact INT AUTO_INCREMENT PRIMARY KEY,
-    id_proyecto INT,                      -- 🔹 FK hacia dim_proyecto_estrategias.id_proyecto
-    id_actividad INT,                     -- 🔹 FK hacia dim_actividad_estrategias.id_actividad
+    id_proyecto INT,
+    id_actividad INT,
     actor VARCHAR(255),
     beneficiarios TEXT,
     dotacion VARCHAR(100),
     descripcion_dotacion TEXT,
     evidencia_URL TEXT,
     hoja VARCHAR(250),
-    id_fecha INT,                         -- 🔹 FK hacia dim_tiempo_estrategias
+    id_fecha INT,
     FOREIGN KEY (id_proyecto) REFERENCES dim_proyecto_estrategias(id_proyecto),
     FOREIGN KEY (id_actividad) REFERENCES dim_actividad_estrategias(id_actividad),
     FOREIGN KEY (id_fecha) REFERENCES dim_tiempo_estrategias(id_fecha)
@@ -120,14 +100,10 @@ DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
 
--- ========================
--- fact_proyecto_institucion_estrategias
--- ========================
 
-DROP TABLE IF EXISTS fact_proyecto_institucion_estrategias;
 CREATE TABLE fact_proyecto_institucion_estrategias (
     id_fact INT AUTO_INCREMENT PRIMARY KEY,
-    id_proyecto INT NOT NULL,   -- ✅ INT en lugar de VARCHAR(20)
+    id_proyecto INT NOT NULL,
     id_institucion VARCHAR(50) NOT NULL,
     id_municipio INT NULL,
     hoja_origen VARCHAR(100) NULL,
@@ -141,14 +117,12 @@ CREATE TABLE fact_proyecto_institucion_estrategias (
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
--- ========================
--- fact_proyecto_beneficiario_estrategias
--- ========================
 
-DROP TABLE IF EXISTS fact_proyecto_beneficiario_estrategias;
+
+
 CREATE TABLE fact_proyecto_beneficiario_estrategias (
     id_fact INT AUTO_INCREMENT PRIMARY KEY,
-    id_proyecto INT,          -- ✅ INT para coincidir con dim_proyecto
+    id_proyecto INT,
     id_institucion VARCHAR(50),
     directivos_benef INT,
     administrativos_benef INT,

@@ -38,12 +38,12 @@ def run(fuente="POAI_2025"):
         output_file = OUTPUT_DIR / f"Registro_Beneficiarios_{fuente}.xlsx"
 
         guardar_excel({"Beneficiarios": df_total}, output_file)
-        print(f"[OK] {len(df_total)} beneficiarios exportados a {output_file}")
+        print(f"\n[OK] {len(df_total)} beneficiarios exportados a {output_file}")
 
         print("\n[DATA] Primeros registros:")
         print(df_total.head())
     else:
-        print("[ALERTA] No se encontraron datos válidos en ninguna hoja.")
+        print("\n[ALERTA] No se encontraron datos válidos en ninguna hoja.")
 
     end = time.time()
-    print(f"[TIEMPO] Extracción {fuente}: {end - start:.2f} segundos")
+    print(f"\n[TIEMPO] Extracción {fuente}: {end - start:.2f} segundos")

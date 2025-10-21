@@ -1,16 +1,6 @@
 USE sised;
 
--- =====================================================
---  MODELO DIMENSIONAL REGALÍAS
--- =====================================================
 
--- =====================================================
--- 🔹 DIMENSIONES
--- =====================================================
-
--- ========================
--- dim_fuente_regalias
--- ========================
 DROP TABLE IF EXISTS dim_fuente_regalias;
 CREATE TABLE dim_fuente_regalias (
     id_fuente INT AUTO_INCREMENT PRIMARY KEY,
@@ -22,18 +12,16 @@ CREATE TABLE dim_fuente_regalias (
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
--- ========================
--- dim_proyecto_regalias
--- ========================
+
 DROP TABLE IF EXISTS dim_proyecto_regalias;
 CREATE TABLE dim_proyecto_regalias (
-    id_proyecto VARCHAR(20) PRIMARY KEY,         -- Código PI
+    id_proyecto VARCHAR(20) PRIMARY KEY, 
     codigo_bpin VARCHAR(20),
     vigencia VARCHAR(50),
     nombre_proyecto VARCHAR(255),
     responsable VARCHAR(255),
     enlace_tecnico VARCHAR(255),
-    apropiacion_pptal DECIMAL(15,2),             -- Valor total
+    apropiacion_pptal DECIMAL(15,2),
     total_ejecutado DECIMAL(15,2),
     documentos_proyecto TEXT,
     avance_avance DECIMAL(5,2),
@@ -43,9 +31,7 @@ CREATE TABLE dim_proyecto_regalias (
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
--- ========================
--- dim_municipio_regalias
--- ========================
+
 DROP TABLE IF EXISTS dim_municipio_regalias;
 CREATE TABLE dim_municipio_regalias (
     id_municipio INT AUTO_INCREMENT PRIMARY KEY,
@@ -56,9 +42,7 @@ CREATE TABLE dim_municipio_regalias (
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
--- ========================
--- dim_institucion_regalias
--- ========================
+
 DROP TABLE IF EXISTS dim_institucion_regalias;
 CREATE TABLE dim_institucion_regalias (
     id_institucion VARCHAR(50) PRIMARY KEY,  
@@ -71,9 +55,7 @@ CREATE TABLE dim_institucion_regalias (
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
--- ========================
--- dim_actividad_regalias
--- ========================
+
 DROP TABLE IF EXISTS dim_actividad_regalias;
 CREATE TABLE dim_actividad_regalias (
     id_actividad INT NOT NULL AUTO_INCREMENT,
@@ -86,9 +68,7 @@ AUTO_INCREMENT=100
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
--- ========================
--- dim_meta_regalias
--- ========================
+
 DROP TABLE IF EXISTS dim_meta_regalias;
 CREATE TABLE dim_meta_regalias (
     id_meta INT PRIMARY KEY,
@@ -101,9 +81,7 @@ CREATE TABLE dim_meta_regalias (
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
--- ========================
--- dim_tiempo_regalias
--- ========================
+
 DROP TABLE IF EXISTS dim_tiempo_regalias;
 CREATE TABLE dim_tiempo_regalias (
     id_fecha INT PRIMARY KEY,
@@ -115,13 +93,7 @@ CREATE TABLE dim_tiempo_regalias (
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
--- =====================================================
--- 🔹 TABLAS DE HECHOS
--- =====================================================
 
--- ========================
--- fact_actividades_regalias
--- ========================
 DROP TABLE IF EXISTS fact_actividades_regalias;
 CREATE TABLE fact_actividades_regalias (
     id_fact INT AUTO_INCREMENT PRIMARY KEY,
@@ -141,9 +113,7 @@ CREATE TABLE fact_actividades_regalias (
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
--- ========================
--- fact_proyecto_meta_regalias
--- ========================
+
 DROP TABLE IF EXISTS fact_proyecto_meta_regalias;
 CREATE TABLE fact_proyecto_meta_regalias (
     id_fact INT AUTO_INCREMENT PRIMARY KEY,
@@ -157,9 +127,7 @@ CREATE TABLE fact_proyecto_meta_regalias (
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
--- ========================
--- fact_proyecto_institucion_regalias
--- ========================
+
 DROP TABLE IF EXISTS fact_proyecto_institucion_regalias;
 CREATE TABLE fact_proyecto_institucion_regalias (
     id_fact INT AUTO_INCREMENT PRIMARY KEY,
@@ -176,9 +144,7 @@ CREATE TABLE fact_proyecto_institucion_regalias (
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
--- ========================
--- fact_proyecto_beneficiario_regalias
--- ========================
+
 DROP TABLE IF EXISTS fact_proyecto_beneficiario_regalias;
 CREATE TABLE fact_proyecto_beneficiario_regalias (
     id_fact INT AUTO_INCREMENT PRIMARY KEY,
@@ -200,12 +166,3 @@ CREATE TABLE fact_proyecto_beneficiario_regalias (
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
-
--- =====================================================
--- 🔍 VALIDACIONES BÁSICAS DE REFERENCIA
--- =====================================================
--- select * from stg_fuente_regalias;
--- select * from stg_proyectos_regalias;
--- select * from stg_actividades_regalias;
--- select * from stg_beneficiarios_regalias;
--- select * from stg_metas_regalias;

@@ -1,14 +1,8 @@
 USE sised;
 
-
--- =====================================================
--- 🧱 CARGA DE DIMENSIONES POAI_2024
--- =====================================================
-
 -- ========================
 -- DIM FUENTE
 -- ========================
-TRUNCATE TABLE dim_fuente_poai_2024;
 INSERT INTO dim_fuente_poai_2024 (nombre_fuente, tipo_fuente, fuente, anio)
 SELECT DISTINCT 
     `Hoja` AS nombre_fuente,
@@ -20,7 +14,6 @@ FROM stg_fuente_poai_2024;
 -- ========================
 -- DIM PROYECTO
 -- ========================
-TRUNCATE TABLE dim_proyecto_poai_2024;
 INSERT INTO dim_proyecto_poai_2024 (
     id_proyecto, codigo_bpin, vigencia, nombre_proyecto, responsable,
     enlace_tecnico, sector, apropiacion_pptal, adicion_pptal, total_ejecutado,
@@ -50,7 +43,6 @@ WHERE p.`Código PI` IS NOT NULL
 -- ========================
 -- DIM ACTIVIDAD
 -- ========================
-TRUNCATE TABLE dim_actividad_poai_2024;
 INSERT INTO dim_actividad_poai_2024 (consecutivo, nombre_actividad, hoja_proyectos)
 SELECT DISTINCT 
     a.`N°`,
@@ -65,7 +57,6 @@ WHERE a.`Actividad del Proyecto` IS NOT NULL
 -- ========================
 -- DIM MUNICIPIO
 -- ========================
-TRUNCATE TABLE dim_municipio_poai_2024;
 INSERT INTO dim_municipio_poai_2024 (nombre_municipio, departamento, region)
 SELECT DISTINCT 
     TRIM(b.`MUNICIPIO`),
@@ -77,7 +68,6 @@ WHERE b.`MUNICIPIO` IS NOT NULL AND TRIM(b.`MUNICIPIO`) <> '';
 -- ========================
 -- DIM INSTITUCION
 -- ========================
-TRUNCATE TABLE dim_institucion_poai_2024;
 INSERT INTO dim_institucion_poai_2024 (id_institucion, nombre_ieo, codigo_dane, tipo, id_municipio)
 SELECT DISTINCT 
     b.`DANE IEO`,
@@ -96,7 +86,6 @@ WHERE b.`DANE IEO` IS NOT NULL
 -- ========================
 -- DIM META
 -- ========================
-TRUNCATE TABLE dim_meta_poai_2024;
 INSERT INTO dim_meta_poai_2024 (id_meta, descripcion_meta, unidad, valor_programado, valor_logrado, hoja_proyectos)
 SELECT DISTINCT 
     m.`ID_Meta`,
@@ -116,7 +105,6 @@ SELECT * FROM dim_meta_poai_2024;
 -- =====================================================
 --  FECHA ACTUAL EN DIM_TIEMPO
 -- =====================================================
-TRUNCATE TABLE dim_tiempo_poai_2024;
 INSERT INTO dim_tiempo_poai_2024 (id_fecha, anio, mes, trimestre, fecha_completa)
 SELECT 
     DATE_FORMAT(CURDATE(), '%Y%m%d') AS id_fecha,
@@ -132,7 +120,6 @@ SELECT
 -- ========================
 -- FACT ACTIVIDADES
 -- ========================
-TRUNCATE TABLE fact_actividades_poai_2024;
 INSERT INTO fact_actividades_poai_2024 (
     id_proyecto, id_actividad, total_ejecutado,
     tipo_actividad, actor, beneficiarios,
@@ -163,7 +150,6 @@ SELECT * FROM fact_actividades_poai_2024;
 -- ========================
 -- FACT PROYECTO META
 -- ========================
-TRUNCATE TABLE fact_proyecto_meta_poai_2024;
 INSERT INTO fact_proyecto_meta_poai_2024 (id_proyecto, id_meta, id_fecha)
 SELECT 
     p.`Código PI`,
@@ -178,7 +164,6 @@ WHERE p.`Código PI` IS NOT NULL;
 -- ========================
 -- FACT PROYECTO INSTITUCION
 -- ========================
-TRUNCATE TABLE fact_proyecto_institucion_poai_2024;
 INSERT INTO fact_proyecto_institucion_poai_2024 (
     id_proyecto, id_institucion, id_municipio, hoja_origen, id_fecha
 )
@@ -201,7 +186,6 @@ SELECT * FROM fact_proyecto_institucion_poai_2024;
 -- ========================
 -- FACT PROYECTO BENEFICIARIO
 -- ========================
-TRUNCATE TABLE fact_proyecto_beneficiario_poai_2024;
 INSERT INTO fact_proyecto_beneficiario_poai_2024 (
     id_proyecto, id_institucion,
     directivos_benef, administrativos_benef,
@@ -231,7 +215,9 @@ SELECT DISTINCT
 FROM stg_beneficiarios_poai_2024 b
 LEFT JOIN stg_proyectos_poai_2024 p 
     ON TRIM(UPPER(b.`PROYECTOS`)) = TRIM(UPPER(p.`Hoja`))
-WHERE (
+WHERE p.`Código PI` IN (SELECT id_proyecto FROM dim_proyecto_poai_2024) -- 
+AND b.`DANE IEO` IN (SELECT id_institucion FROM dim_institucion_poai_2024)  -- 
+AND (
     COALESCE(b.`# Directivos Beneficiados`,0) +
     COALESCE(b.`# Administrativos Beneficiados`,0) +
     COALESCE(b.`# Docentes Beneficiados`,0) +
@@ -240,20 +226,4 @@ WHERE (
 ) > 0;
 
 SELECT * FROM fact_proyecto_beneficiario_poai_2024;
-
-
--- =====================================================
--- ✅ RESUMEN GENERAL
--- =====================================================
-SELECT 'dim_fuente_poai_2024' AS tabla, COUNT(*) AS filas FROM dim_fuente_poai_2024
-UNION ALL SELECT 'dim_proyecto_poai_2024', COUNT(*) FROM dim_proyecto_poai_2024
-UNION ALL SELECT 'dim_actividad_poai_2024', COUNT(*) FROM dim_actividad_poai_2024
-UNION ALL SELECT 'dim_municipio_poai_2024', COUNT(*) FROM dim_municipio_poai_2024
-UNION ALL SELECT 'dim_institucion_poai_2024', COUNT(*) FROM dim_institucion_poai_2024
-UNION ALL SELECT 'dim_meta_poai_2024', COUNT(*) FROM dim_meta_poai_2024
-UNION ALL SELECT 'dim_tiempo_poai_2024', COUNT(*) FROM dim_tiempo_poai_2024
-UNION ALL SELECT 'fact_actividades_poai_2024', COUNT(*) FROM fact_actividades_poai_2024
-UNION ALL SELECT 'fact_proyecto_meta_poai_2024', COUNT(*) FROM fact_proyecto_meta_poai_2024
-UNION ALL SELECT 'fact_proyecto_institucion_poai_2024', COUNT(*) FROM fact_proyecto_institucion_poai_2024
-UNION ALL SELECT 'fact_proyecto_beneficiario_poai_2024', COUNT(*) FROM fact_proyecto_beneficiario_poai_2024;
 

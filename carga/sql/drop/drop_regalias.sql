@@ -1,0 +1,13 @@
+SET FOREIGN_KEY_CHECKS=0;
+DROP TABLE IF EXISTS fact_proyecto_beneficiario_regalias;
+DROP TABLE IF EXISTS fact_proyecto_institucion_regalias;
+DROP TABLE IF EXISTS fact_proyecto_meta_regalias;
+DROP TABLE IF EXISTS fact_actividades_regalias;
+DROP TABLE IF EXISTS dim_institucion_regalias;
+DROP TABLE IF EXISTS dim_municipio_regalias;
+DROP TABLE IF EXISTS dim_actividad_regalias;
+DROP TABLE IF EXISTS dim_meta_regalias;
+DROP TABLE IF EXISTS dim_tiempo_regalias;
+DROP TABLE IF EXISTS dim_proyecto_regalias;
+DROP TABLE IF EXISTS dim_fuente_regalias;
+SET FOREIGN_KEY_CHECKS=1;

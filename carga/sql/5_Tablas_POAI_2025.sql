@@ -1,17 +1,7 @@
 USE sised;
 
--- =====================================================
--- 🧩 MODELO DIMENSIONAL - POAI_2025
--- =====================================================
 
--- =====================================================
--- 🔹 SECCIÓN 1: TABLAS DIMENSIONALES
--- =====================================================
 
--- ========================
--- DIM FUENTE
--- ========================
-DROP TABLE IF EXISTS dim_fuente_poai_2025;
 CREATE TABLE dim_fuente_poai_2025 (
     id_fuente INT AUTO_INCREMENT PRIMARY KEY,
     nombre_fuente VARCHAR(255),
@@ -20,12 +10,11 @@ CREATE TABLE dim_fuente_poai_2025 (
     anio VARCHAR(4) DEFAULT '2025'
 ) ENGINE=InnoDB;
 
--- ========================
--- DIM PROYECTO
--- ========================
-DROP TABLE IF EXISTS dim_proyecto_poai_2025;
+
+
+
 CREATE TABLE dim_proyecto_poai_2025 (
-    id_proyecto VARCHAR(20) PRIMARY KEY,         -- Código PI
+    id_proyecto VARCHAR(20) PRIMARY KEY,
     codigo_bpin VARCHAR(20),
     nombre_proyecto VARCHAR(255),
     responsable VARCHAR(255),
@@ -40,20 +29,8 @@ CREATE TABLE dim_proyecto_poai_2025 (
     hoja_fuentes VARCHAR(100)
 ) ENGINE=InnoDB;
 
--- ========================
--- DIM ACTIVIDAD
--- ========================
-DROP TABLE IF EXISTS dim_actividad_poai_2025;
-/*CREATE TABLE dim_actividad_poai_2025 (
-    consecutivo INT NOT NULL,
-    nombre_actividad TEXT NOT NULL,
-    hoja_proyectos VARCHAR(100),
-    id_actividad VARCHAR(255) GENERATED ALWAYS AS (
-        CONCAT(consecutivo, '_', LEFT(nombre_actividad, 20))
-    ) STORED,
-    PRIMARY KEY (id_actividad)
-) ENGINE=InnoDB;
-*/
+
+
 
 CREATE TABLE dim_actividad_poai_2025 (
     id_actividad INT AUTO_INCREMENT PRIMARY KEY,
@@ -65,10 +42,9 @@ AUTO_INCREMENT=100
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
--- ========================
--- DIM MUNICIPIO
--- ========================
-DROP TABLE IF EXISTS dim_municipio_poai_2025;
+
+
+
 CREATE TABLE dim_municipio_poai_2025 (
     id_municipio INT AUTO_INCREMENT PRIMARY KEY,
     nombre_municipio VARCHAR(255),
@@ -76,12 +52,11 @@ CREATE TABLE dim_municipio_poai_2025 (
     region VARCHAR(255)
 ) ENGINE=InnoDB;
 
--- ========================
--- DIM INSTITUCIÓN
--- ========================
-DROP TABLE IF EXISTS dim_institucion_poai_2025;
+
+
+
 CREATE TABLE dim_institucion_poai_2025 (
-    id_institucion VARCHAR(50) PRIMARY KEY,      -- Código DANE IEO
+    id_institucion VARCHAR(50) PRIMARY KEY,
     nombre_ieo VARCHAR(255),
     codigo_dane VARCHAR(50),
     tipo VARCHAR(50) DEFAULT 'IEO',
@@ -89,10 +64,9 @@ CREATE TABLE dim_institucion_poai_2025 (
     FOREIGN KEY (id_municipio) REFERENCES dim_municipio_poai_2025(id_municipio)
 ) ENGINE=InnoDB;
 
--- ========================
--- DIM META
--- ========================
-DROP TABLE IF EXISTS dim_meta_poai_2025;
+
+
+
 CREATE TABLE dim_meta_poai_2025 (
     id_meta INT PRIMARY KEY,
     descripcion_meta VARCHAR(500),
@@ -102,10 +76,9 @@ CREATE TABLE dim_meta_poai_2025 (
     hoja_proyectos VARCHAR(100)
 ) ENGINE=InnoDB;
 
--- ========================
--- DIM TIEMPO
--- ========================
-DROP TABLE IF EXISTS dim_tiempo_poai_2025;
+
+
+
 CREATE TABLE dim_tiempo_poai_2025 (
     id_fecha INT PRIMARY KEY,
     anio INT,
@@ -114,14 +87,9 @@ CREATE TABLE dim_tiempo_poai_2025 (
     fecha_completa DATE
 ) ENGINE=InnoDB;
 
--- =====================================================
--- 🔸 SECCIÓN 2: TABLAS DE HECHOS
--- =====================================================
 
--- ========================
--- FACT ACTIVIDADES
--- ========================
-DROP TABLE IF EXISTS fact_actividades_poai_2025;
+
+
 CREATE TABLE fact_actividades_poai_2025 (
     id_fact INT AUTO_INCREMENT PRIMARY KEY,
     id_proyecto VARCHAR(20),
@@ -135,15 +103,11 @@ CREATE TABLE fact_actividades_poai_2025 (
     evidencia_URL TEXT,
     id_fecha INT,
     FOREIGN KEY (id_proyecto) REFERENCES dim_proyecto_poai_2025(id_proyecto),
-    -- FOREIGN KEY (id_actividad) REFERENCES dim_actividad_poai_2025(id_actividad),
     FOREIGN KEY (id_fecha) REFERENCES dim_tiempo_poai_2025(id_fecha)
 ) ENGINE=InnoDB;
 
 
--- ========================
--- FACT PROYECTO-META
--- ========================
-DROP TABLE IF EXISTS fact_proyecto_meta_poai_2025;
+
 CREATE TABLE fact_proyecto_meta_poai_2025 (
     id_fact INT AUTO_INCREMENT PRIMARY KEY,
     id_proyecto VARCHAR(20),
@@ -154,10 +118,9 @@ CREATE TABLE fact_proyecto_meta_poai_2025 (
     FOREIGN KEY (id_fecha) REFERENCES dim_tiempo_poai_2025(id_fecha)
 ) ENGINE=InnoDB;
 
--- ========================
--- FACT PROYECTO-INSTITUCIÓN
--- ========================
-DROP TABLE IF EXISTS fact_proyecto_institucion_poai_2025;
+
+
+
 CREATE TABLE fact_proyecto_institucion_poai_2025 (
     id_fact INT AUTO_INCREMENT PRIMARY KEY,
     id_proyecto VARCHAR(20) NOT NULL,
@@ -171,10 +134,9 @@ CREATE TABLE fact_proyecto_institucion_poai_2025 (
     FOREIGN KEY (id_fecha) REFERENCES dim_tiempo_poai_2025(id_fecha)
 ) ENGINE=InnoDB;
 
--- ========================
--- FACT PROYECTO-BENEFICIARIO
--- ========================
-DROP TABLE IF EXISTS fact_proyecto_beneficiario_poai_2025;
+
+
+
 CREATE TABLE fact_proyecto_beneficiario_poai_2025 (
     id_fact INT AUTO_INCREMENT PRIMARY KEY,
     id_proyecto VARCHAR(20),
@@ -193,7 +155,3 @@ CREATE TABLE fact_proyecto_beneficiario_poai_2025 (
     FOREIGN KEY (id_fecha) REFERENCES dim_tiempo_poai_2025(id_fecha)
 ) ENGINE=InnoDB;
 
--- =====================================================
--- 🔍 VERIFICACIÓN FINAL
--- =====================================================
-SHOW TABLES LIKE '%poai_2025%';

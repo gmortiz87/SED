@@ -28,15 +28,15 @@ CREATE TABLE stg_fuente_poai_2024 (
 DROP TABLE IF EXISTS stg_proyectos_poai_2024;
 CREATE TABLE stg_proyectos_poai_2024 (
   `Vigencia` VARCHAR(4),
-  `Código BPIN` VARCHAR(20),   -- 🔹 más largo
-  `Código PI` VARCHAR(20),     -- 🔹 más largo
+  `Código BPIN` VARCHAR(20),   
+  `Código PI` VARCHAR(20),     
   `Total Ejecutado` DECIMAL(15,2),
   `RECURSOS` VARCHAR(50),
   `Hoja` VARCHAR(100),
   `FUENTES` VARCHAR(100),
   `PROYECTOS` VARCHAR(100),
   `BENEFICIARIOS` VARCHAR(100),
-  `Nombre_Proyecto` VARCHAR(255)  -- 🔹 ampliado
+  `Nombre_Proyecto` VARCHAR(255)
 ) ENGINE=InnoDB;
 
 -- ========================

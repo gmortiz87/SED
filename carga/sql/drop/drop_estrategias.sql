@@ -1,0 +1,11 @@
+SET FOREIGN_KEY_CHECKS=0;
+DROP TABLE IF EXISTS fact_proyecto_beneficiario_estrategias;
+DROP TABLE IF EXISTS fact_proyecto_institucion_estrategias;
+DROP TABLE IF EXISTS fact_actividades_estrategias;
+DROP TABLE IF EXISTS dim_institucion_estrategias;
+DROP TABLE IF EXISTS dim_municipio_estrategias;
+DROP TABLE IF EXISTS dim_actividad_estrategias;
+DROP TABLE IF EXISTS dim_tiempo_estrategias;
+DROP TABLE IF EXISTS dim_proyecto_estrategias;
+DROP TABLE IF EXISTS dim_fuente_estrategias;
+SET FOREIGN_KEY_CHECKS=1;

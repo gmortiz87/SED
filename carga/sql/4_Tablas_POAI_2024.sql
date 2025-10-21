@@ -1,9 +1,6 @@
 USE sised;
 
--- ========================
--- DIM FUENTE
--- ========================
-DROP TABLE IF EXISTS dim_fuente_poai_2024;
+
 CREATE TABLE dim_fuente_poai_2024 (
     id_fuente INT AUTO_INCREMENT PRIMARY KEY,
     nombre_fuente VARCHAR(255),
@@ -14,14 +11,11 @@ CREATE TABLE dim_fuente_poai_2024 (
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
-SELECT * FROM stg_fuente_poai_2024;
 
--- ========================
--- DIM PROYECTO
--- ========================
-DROP TABLE IF EXISTS dim_proyecto_poai_2024;
+
+
 CREATE TABLE dim_proyecto_poai_2024 (
-    id_proyecto VARCHAR(20) PRIMARY KEY,           -- Código PI
+    id_proyecto VARCHAR(20) PRIMARY KEY,
     codigo_bpin VARCHAR(20),
     vigencia VARCHAR(50),
     nombre_proyecto VARCHAR(255),
@@ -39,12 +33,9 @@ CREATE TABLE dim_proyecto_poai_2024 (
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
-SELECT * FROM stg_proyectos_poai_2024;
 
--- ========================
--- DIM ACTIVIDAD
--- ========================
-DROP TABLE IF EXISTS dim_actividad_poai_2024;
+
+
 CREATE TABLE dim_actividad_poai_2024 (
     id_actividad INT AUTO_INCREMENT PRIMARY KEY,
     consecutivo INT NOT NULL,
@@ -55,12 +46,8 @@ AUTO_INCREMENT=100
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
-SELECT * FROM stg_actividades_poai_2024;
 
--- ========================
--- DIM MUNICIPIO
--- ========================
-DROP TABLE IF EXISTS dim_municipio_poai_2024;
+
 CREATE TABLE dim_municipio_poai_2024 (
     id_municipio INT AUTO_INCREMENT PRIMARY KEY,
     nombre_municipio VARCHAR(255),
@@ -70,14 +57,11 @@ CREATE TABLE dim_municipio_poai_2024 (
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
-SELECT * FROM stg_beneficiarios_poai_2024;
 
--- ========================
--- DIM INSTITUCION
--- ========================
-DROP TABLE IF EXISTS dim_institucion_poai_2024;
+
+
 CREATE TABLE dim_institucion_poai_2024 (
-    id_institucion VARCHAR(50) PRIMARY KEY,    -- DANE IEO
+    id_institucion VARCHAR(50) PRIMARY KEY,
     nombre_ieo VARCHAR(255),
     codigo_dane VARCHAR(50),
     tipo VARCHAR(50) DEFAULT 'IEO',
@@ -87,12 +71,9 @@ CREATE TABLE dim_institucion_poai_2024 (
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
-SELECT * FROM dim_institucion_poai_2024;
 
--- ========================
--- DIM META
--- ========================
-DROP TABLE IF EXISTS dim_meta_poai_2024;
+
+
 CREATE TABLE dim_meta_poai_2024 (
     id_meta INT PRIMARY KEY,
     descripcion_meta VARCHAR(500),
@@ -104,12 +85,9 @@ CREATE TABLE dim_meta_poai_2024 (
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
-SELECT * FROM stg_metas_poai_2024;
 
--- ========================
--- DIM TIEMPO
--- ========================
-DROP TABLE IF EXISTS dim_tiempo_poai_2024;
+
+
 CREATE TABLE dim_tiempo_poai_2024 (
     id_fecha INT PRIMARY KEY,
     anio INT,
@@ -120,16 +98,9 @@ CREATE TABLE dim_tiempo_poai_2024 (
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
-select *  from dim_tiempo_poai_2024;
 
--- =====================================================
--- TABLAS DE HECHOS
--- =====================================================
 
--- ========================
--- FACT ACTIVIDADES
--- ========================
-DROP TABLE IF EXISTS fact_actividades_poai_2024;
+
 CREATE TABLE fact_actividades_poai_2024 (
     id_fact INT AUTO_INCREMENT PRIMARY KEY,
     id_proyecto VARCHAR(20),
@@ -148,12 +119,9 @@ CREATE TABLE fact_actividades_poai_2024 (
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
-SELECT * FROM fact_actividades_poai_2024;
 
--- ========================
--- FACT PROYECTO META
--- ========================
-DROP TABLE IF EXISTS fact_proyecto_meta_poai_2024;
+
+
 CREATE TABLE fact_proyecto_meta_poai_2024 (
     id_fact INT AUTO_INCREMENT PRIMARY KEY,
     id_proyecto VARCHAR(20),
@@ -166,12 +134,9 @@ CREATE TABLE fact_proyecto_meta_poai_2024 (
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
-SELECT * FROM fact_proyecto_meta_poai_2024;
 
--- ========================
--- FACT PROYECTO INSTITUCION
--- ========================
-DROP TABLE IF EXISTS fact_proyecto_institucion_poai_2024;
+
+
 CREATE TABLE fact_proyecto_institucion_poai_2024 (
     id_fact INT AUTO_INCREMENT PRIMARY KEY,
     id_proyecto VARCHAR(20) NOT NULL,
@@ -187,12 +152,8 @@ CREATE TABLE fact_proyecto_institucion_poai_2024 (
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
-SELECT * FROM fact_proyecto_institucion_poai_2024;
 
--- ========================
--- FACT PROYECTO BENEFICIARIO
--- ========================
-DROP TABLE IF EXISTS fact_proyecto_beneficiario_poai_2024;
+
 CREATE TABLE fact_proyecto_beneficiario_poai_2024 (
     id_fact INT AUTO_INCREMENT PRIMARY KEY,
     id_proyecto VARCHAR(20),
@@ -208,7 +169,7 @@ CREATE TABLE fact_proyecto_beneficiario_poai_2024 (
     asistencia VARCHAR(50),
     num_afa_ben VARCHAR(50),
     asistencia_insitu VARCHAR(50),
-    ieo_beneficiada VARCHAR(50),      -- se conserva por trazabilidad
+    ieo_beneficiada VARCHAR(50),
     padres_madres_benef INT,
     id_fecha INT,
     FOREIGN KEY (id_proyecto) REFERENCES dim_proyecto_poai_2024(id_proyecto),
@@ -218,5 +179,3 @@ CREATE TABLE fact_proyecto_beneficiario_poai_2024 (
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 
-SELECT * FROM stg_beneficiarios_poai_2024;
-SELECT * FROM fact_proyecto_beneficiario_poai_2024;

@@ -20,7 +20,7 @@ def run(fuente="ESTRATEGIAS"):
 
     end = time.time()
     
-    print(f"[INFO] {len(df_proyectos)} proyectos y {len(df_actividades)} actividades exportadas")
+    print(f"\n[INFO] {len(df_proyectos)} proyectos y {len(df_actividades)} actividades exportadas")
     
     print("\n[OK] Primeros registros estrategias:")
     print(df_proyectos.head())
@@ -28,6 +28,6 @@ def run(fuente="ESTRATEGIAS"):
     print("\n[OK] Primeros registros actividades:")
     print(df_actividades.head())
 
-    print(f"[TIEMPO] Extracción {fuente}: {end - start:.2f} segundos")
+    print(f"\n[TIEMPO] Extracción {fuente}: {end - start:.2f} segundos")
 
     return df_proyectos, df_actividades

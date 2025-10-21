@@ -58,7 +58,7 @@ def main():
             {"Fuente": "Estrategias", "Tabla": "Beneficiarios", "Total Registros": len(df_ben)},
         ])
     except Exception as e:
-        print(f"[ERROR] Transformación Estrategias: {e}")
+        print(f"\n[ERROR] Transformación Estrategias: {e}")
 
     # --- Regalías ---
     try:
@@ -72,7 +72,7 @@ def main():
             {"Fuente": "Regalías", "Tabla": "Metas", "Total Registros": len(df_metas)}, 
         ])
     except Exception as e:
-        print(f"[ERROR] Transformación Regalías: {e}")
+        print(f"\n[ERROR] Transformación Regalías: {e}")
 
     end = time.time()
 

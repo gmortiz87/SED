@@ -39,7 +39,7 @@ def main():
     # ========================
     # 1. EXTRACCIÓN
     # ========================
-    print("📥 Extrayendo Nivel 1 (Fuentes)...")
+    print("\n📥 Extrayendo Nivel 1 (Fuentes)...")
     extraccion_fuente_poai_2025.run()
     extraccion_fuente_poai_2024.run()
     extraccion_fuente_regalias.run()
